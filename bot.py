@@ -1,11 +1,15 @@
 import discord
 import requests 
 import json 
+import os
+from dotenv import load_dotenv
 """
 Go to this link to create discord bot, enable permissions, get token, and make invite link:
 https://discord.com/developers/applications
 
 """
+load_dotenv()
+TOKEN = os.getenv('TOKEN')
 
 # getting memees from public api link in json format and returns reddit meme link
 def get_meme():
@@ -32,4 +36,4 @@ intents = discord.Intents.default()
 intents.message_content = True
 # assigns settings to client and uses discord API token to run client
 client = MyClient(intents=intents)
-client.run('MTM1NTY2NTMwMDU2MDgwNjExMA.GkDwB-.YXY-x5ES8iApH2-b2LPh1Yl2Xn8seNKWlQ_mzM')
+client.run(TOKEN)
